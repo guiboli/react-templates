@@ -1,12 +1,12 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {ProgressPlugin} = require('webpack');
+const { ProgressPlugin } = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 
-const {resolveFromRoot} = require('./utils');
+const { resolveFromRoot } = require('./utils');
 
 module.exports = {
-  entry: {index: resolveFromRoot('src/index.js')},
+  entry: { index: resolveFromRoot('src/index.js') },
   output: {
     filename: 'assets/js/[name].[contenthash:8].js',
     path: resolveFromRoot('dist'),
@@ -18,7 +18,10 @@ module.exports = {
   },
   resolve: {
     alias: {
-      '~': resolveFromRoot('src')
+      // to distinguish node_modules packages, we use '~' alias in [.js, .jsx, .ts, .tsx]
+      // but '~' not work in [.css, .scss, .less], we use '@; alias in [.css, .scss, .less]
+      '~': resolveFromRoot('src'),
+      '@': resolveFromRoot('src'),
     },
     extensions: ['.json', '.js', '.jsx'],
   },
@@ -61,15 +64,16 @@ module.exports = {
     new HtmlWebpackPlugin({
       hash: true,
       template: resolveFromRoot('src/index.html'),
-      favicon: 'src/assets/images/favicon.ico',
+      // favicon: 'src/assets/images/favicon.ico',
     }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: resolveFromRoot('src/assets/glbs'),
-          to: resolveFromRoot('dist/assets/glbs'),
-        },
-      ],
-    }),
+    // uncomment to use `CopyPlugin`
+    // new CopyPlugin({
+    //   patterns: [
+    //     {
+    //       from: resolveFromRoot('src/assets/glbs'),
+    //       to: resolveFromRoot('dist/assets/glbs'),
+    //     },
+    //   ],
+    // }),
   ],
 };

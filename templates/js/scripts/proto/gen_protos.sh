@@ -2,7 +2,7 @@
 
 # This is a script generating protobuf into javascript (common js format).
 
-shopt -s globstar
+# shopt -s globstar
 
 # Terminal color
 RED='\033[0;31m'
@@ -16,16 +16,15 @@ REPO_DIR=${REPO_DIR:-$(git rev-parse --show-toplevel)}
 )
 
 cd $REPO_DIR
-PROTOC_DIR=$REPO_DIR/tools/proto/
+PROTOC_DIR=$REPO_DIR/tools/proto
 mkdir -p $PROTOC_DIR
 
 # Sets up protoc.
 PROTOC_FILE=$PROTOC_DIR/bin/protoc
-PROTOC_LOCAL_STRING=$(whereis protoc)
-PROTOC_LOCAL_LIST=(${PROTOC_LOCAL_STRING// / })
-PROTOC_CMD_NUM="${#PROTOC_LOCAL_LIST[@]}"
-if (( PROTOC_CMD_NUM > 1 )) && [[ ${PROTOC_LOCAL_LIST[1]} == *"/bin/"* ]]; then
-  PROTOC_FILE=${PROTOC_LOCAL_LIST[1]}
+PROTOC_LOCAL_STRING=$(which protoc)
+
+if [[ ${PROTOC_LOCAL_STRING} == *"/bin/"* ]]; then
+  PROTOC_FILE=$PROTOC_LOCAL_STRING
 else
   if [ ! -f "$PROTOC_FILE" ]; then
     echo "$PROTOC_FILE does not exist, downloading ..."
@@ -49,13 +48,10 @@ if ! command -v protoc-gen-grpc-web &> /dev/null; then
   exit 1
 fi
 
-CORE_API_DIR=webeditor/node_modules/dm-core-apis
+CORE_API_DIR=$REPO_DIR/node_modules/dm-core-apis
 RST="$(
   $PROTOC_FILE \
-    $CORE_API_DIR/proto/api/common/*.proto \
-    $CORE_API_DIR/proto/internal/*/*.proto \
-    $CORE_API_DIR/proto/api/services/*/*.proto \
-    $CORE_API_DIR/proto/api/math/*.proto \
+    $(find $CORE_API_DIR/proto -iname "*.proto") \
     --proto_path=$CORE_API_DIR \
     --js_out=import_style=commonjs,binary:$CORE_API_DIR/ \
     --grpc-web_out=import_style=commonjs,mode=grpcwebtext:$CORE_API_DIR/ \
