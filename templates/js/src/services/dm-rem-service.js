@@ -26,7 +26,8 @@ const setRem = () => {
   const portraitWidth =
     window.innerWidth < minWidth ? minWidth : window.innerWidth;
   const fontSize =
-    (portraitWidth / (defaultDesignWidth / rem2px) / defaultFontSize) * 100 + '%';
+    (portraitWidth / (defaultDesignWidth / rem2px) / defaultFontSize) * 100 +
+    '%';
   const fontSizeRatio =
     portraitWidth / (defaultDesignWidth / rem2px) / defaultFontSize;
 
@@ -65,7 +66,6 @@ const getRealRem2px = () => {
     window.innerWidth < minWidth ? minWidth : window.innerWidth;
   return (rem2px * portraitWidth) / defaultDesignWidth;
 };
-
 
 const DMRemService = {
   getRealRem2px,

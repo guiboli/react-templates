@@ -25,17 +25,17 @@ const App = () => {
   }, []);
 
   return (
-      <div className="app">
-        <BrowserRouter>
-          {/* <Switch>
+    <div className="app">
+      <BrowserRouter>
+        {/* <Switch>
             <Route exact={true} path="/">
               <Redirect to="/index" />
             </Route>
             <Route path="/index" component={LoginPage} />
             <Route path="/editor" component={EditorPage} />
           </Switch> */}
-        </BrowserRouter>
-      </div>
+      </BrowserRouter>
+    </div>
   );
 };
 
