@@ -64,7 +64,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       hash: true,
       template: resolveFromRoot('src/index.html'),
-      // favicon: 'src/assets/images/favicon.ico',
+      favicon: resolveFromRoot('src/assets/images/favicon.png'),
     }),
     // uncomment to use `CopyPlugin`
     // new CopyPlugin({

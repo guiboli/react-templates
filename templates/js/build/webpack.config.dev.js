@@ -1,10 +1,10 @@
-const {merge} = require('webpack-merge');
-const {SourceMapDevToolPlugin} = require('webpack');
+const { merge } = require('webpack-merge');
+const { SourceMapDevToolPlugin } = require('webpack');
 
 const base = require('./webpack.config.base');
-const {resolveFromRoot} = require('./utils');
+const { resolveFromRoot } = require('./utils');
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3000;
 
 module.exports = merge(base, {
   mode: 'development',

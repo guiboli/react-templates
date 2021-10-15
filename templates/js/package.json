@@ -80,6 +80,7 @@
     "dm-core-apis": "https://b0e69d10ce9d18a997f6e8b865ebd1c38c0c31fe@github.com/deepmirrorinc/CoreApis.git",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router-config": "^5.1.1",
     "react-router-dom": "^5.2.0",
     "webpack": "^5.51.1"
   }
