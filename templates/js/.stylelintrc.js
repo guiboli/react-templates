@@ -19,5 +19,5 @@ module.exports = {
     ],
     'order/properties-alphabetical-order': true,
   },
-  ignoreFiles: ['**/*.js', '**/*.jsx'],
+  ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.txs', '**/*.json'],
 };

@@ -3,3 +3,6 @@ build
 dist
 **/*.js
 **/*.jsx
+**/*.ts
+**/*.tsx
+**/*.json

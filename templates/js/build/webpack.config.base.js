@@ -19,11 +19,11 @@ module.exports = {
   resolve: {
     alias: {
       // to distinguish node_modules packages, we use '~' alias in [.js, .jsx, .ts, .tsx]
-      // but '~' not work in [.css, .scss, .less], we use '@; alias in [.css, .scss, .less]
+      // but '~' not work in [.css, .scss, .less], we use '@' alias in [.css, .scss, .less]
       '~': resolveFromRoot('src'),
       '@': resolveFromRoot('src'),
     },
-    extensions: ['.json', '.js', '.jsx'],
+    extensions: ['.json', '.js', '.jsx', 'ts', 'tsx'],
   },
   module: {
     rules: [
