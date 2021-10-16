@@ -1,0 +1,11 @@
+ ## file extensions
+ *.*
++LICENSE
+ !*.css
+ !*.scss
+ !*.less
+ !*.ts
+ !*.tsx
+ !*.js
+ !*.jsx
+ !*.json
