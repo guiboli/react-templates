@@ -1,12 +1,12 @@
-import { renderRoutes } from 'react-router-config';
+import { renderRoutes, RouteConfig } from 'react-router-config';
 import { Home } from '~/widgets/Home';
 import { HelloWorld } from '~/widgets/HelloWorld';
 
-const Root = ({ route }) => {
+const Root = ({ route }: any) => {
   return renderRoutes(route.routes);
 };
 
-const routes = [
+const routes: RouteConfig[] = [
   {
     component: Root,
     routes: [

@@ -45,12 +45,10 @@ const setRem = () => {
   `;
 
   if (document.getElementById('__rem-style__')) {
-    document.getElementById('__rem-style__').innerHTML =
+    document.getElementById('__rem-style__')!.innerHTML =
       htmlFontSize + bodyFontSize;
   } else {
-    const style =
-      document.getElementById('__rem-style__') ||
-      document.createElement('style');
+    const style = document.createElement('style');
     style.setAttribute('id', '__rem-style__');
     style.innerHTML = htmlFontSize + bodyFontSize;
 

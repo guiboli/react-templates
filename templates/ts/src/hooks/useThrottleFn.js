@@ -9,6 +9,7 @@ const useThrottleFn = (fn, ms, options, deps = []) => {
     fnRef.current = fn;
   });
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const throttleFn = useCallback(
     throttle(() => fnRef.current(), ms, options),
     deps,

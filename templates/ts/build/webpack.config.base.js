@@ -3,11 +3,13 @@ const { ProgressPlugin } = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 const { resolveFromRoot } = require('./utils');
 
 module.exports = {
-  entry: { index: resolveFromRoot('src/index.ts') },
+  entry: { index: resolveFromRoot('src/index.tsx') },
   output: {
     filename: 'assets/js/[name].[contenthash:8].js',
     path: resolveFromRoot('dist'),
@@ -24,7 +26,7 @@ module.exports = {
       '~': resolveFromRoot('src'),
       '@': resolveFromRoot('src'),
     },
-    extensions: ['.json', '.js', '.jsx', 'ts', 'tsx'],
+    extensions: ['.json', '.js', '.jsx', '.ts', '.tsx'],
   },
   module: {
     rules: [
@@ -45,7 +47,6 @@ module.exports = {
               configFile: resolveFromRoot('tsconfig.json'),
             },
           },
-          'eslint-loader',
           'source-map-loader',
         ],
       },
@@ -75,6 +76,8 @@ module.exports = {
       template: resolveFromRoot('src/index.html'),
       favicon: resolveFromRoot('src/assets/images/favicon.png'),
     }),
+    new TsconfigPathsPlugin({ configFile: resolveFromRoot('tsconfig.json') }),
+    new ESLintPlugin(),
     new ForkTsCheckerWebpackPlugin(),
     // uncomment to use `CopyPlugin`
     // new CopyPlugin({

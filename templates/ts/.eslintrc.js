@@ -17,6 +17,10 @@ module.exports = {
     'prettier',
   ],
   rules: {
+    'no-unused-vars': 0,
+    'no-invalid-this': 0,
+    'react/jsx-uses-react': 'error',
+    'react/prop-types': 'off',
     'react/self-closing-comp': [
       'error',
       {
@@ -24,20 +28,8 @@ module.exports = {
         html: true,
       },
     ],
-    'no-unused-vars': 0,
-    'no-invalid-this': 0,
-    'react/jsx-uses-react': 'error',
-    'react/prop-types': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
   },
-  overrides: [
-    {
-      files: ['**/*.ts', '**/*.tsx'],
-      extends: [
-        'plugin:@typescript-eslint/recommended',
-        'prettier/@typescript-eslint',
-      ],
-    },
-  ],
   env: {
     browser: true,
     node: true,

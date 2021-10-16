@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { ProgressPlugin } = require('webpack');
 const CopyPlugin = require('copy-webpack-plugin');
 const StylelintPlugin = require('stylelint-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const { resolveFromRoot } = require('./utils');
 
@@ -23,7 +24,7 @@ module.exports = {
       '~': resolveFromRoot('src'),
       '@': resolveFromRoot('src'),
     },
-    extensions: ['.json', '.js', '.jsx', 'ts', 'tsx'],
+    extensions: ['.json', '.js', '.jsx', '.ts', '.tsx'],
   },
   module: {
     rules: [
@@ -33,12 +34,7 @@ module.exports = {
         include: [resolveFromRoot('src')],
 
         // Webpack will try the loaders backwards.
-        use: [
-          'cache-loader',
-          'babel-loader',
-          'eslint-loader',
-          'source-map-loader',
-        ],
+        use: ['cache-loader', 'babel-loader', 'source-map-loader'],
       },
       {
         test: /\.(png|jpe?g|gif|svg|glb|gltf)$/i,
@@ -66,6 +62,7 @@ module.exports = {
       template: resolveFromRoot('src/index.html'),
       favicon: resolveFromRoot('src/assets/images/favicon.png'),
     }),
+    new ESLintPlugin(),
     // uncomment to use `CopyPlugin`
     // new CopyPlugin({
     //   patterns: [
