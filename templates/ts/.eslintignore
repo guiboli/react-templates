@@ -2,3 +2,12 @@ node_modules
 build
 dist
 assets
+
+## file extensions
+*.*
++LICENSE
+!*.ts
+!*.tsx
+!*.js
+!*.jsx
+!*.json
