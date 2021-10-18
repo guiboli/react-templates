@@ -7,6 +7,7 @@ module.exports = {
       jsx: true,
     },
   },
+  plugins: ['react-hooks'],
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
