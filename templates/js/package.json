@@ -12,7 +12,7 @@
     "build": "webpack build --config build/webpack.config.prod.js",
     "build:preview": "yarn build && serve dist -p 4001 -s",
     "build:analyze": "cross-env ANALYZE=true webpack build --config build/webpack.config.prod.js",
-    "lint::script": "prettier --check --write src/**/*.* && eslint --fix",
+    "lint:script": "prettier --check --write src/**/*.* && eslint --fix",
     "lint:style": "prettier --check --write src/**/*.* && stylelint src/**/*.scss --syntax=scss --fix && stylelint src/**/*.css --syntax=css --fix"
   },
   "lint-staged": {
