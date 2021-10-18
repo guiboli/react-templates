@@ -101,3 +101,10 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# not ignore
+!build/
+!.husky/
+
+# *.scss.d.ts
+*.scss.d.ts
