@@ -37,17 +37,6 @@ else
   fi
 fi
 
-# Sets up protoc-gen-grpc-web.
-if ! command -v protoc-gen-grpc-web &> /dev/null; then
-  /usr/bin/printf "${RED}\xE2\x9D\x8C protoc-gen-grpc-web need to be installed${NC}, please run:\n"
-  echo "npm install -g protoc-gen-grpc-web"
-  echo "-----------or----------"
-  echo "sudo wget https://github.com/grpc/grpc-web/releases/download/1.2.0/protoc-gen-grpc-web-1.2.0-linux-x86_64 -O /usr/bin/protoc-gen-grpc-web"
-  echo "sudo chmod a+x /usr/bin/protoc-gen-grpc-web"
-  echo "exit 1"
-  exit 1
-fi
-
 CORE_API_DIR=$REPO_DIR/node_modules/dm-core-apis
 RST="$(
   $PROTOC_FILE \
