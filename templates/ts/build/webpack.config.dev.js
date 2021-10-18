@@ -1,5 +1,6 @@
 const { merge } = require('webpack-merge');
 const { SourceMapDevToolPlugin } = require('webpack');
+const portFinderSync = require('portfinder-sync');
 
 const base = require('./webpack.config.base');
 const { resolveFromRoot } = require('./utils');
@@ -41,7 +42,7 @@ module.exports = merge(base, {
     host: '0.0.0.0',
     hot: true,
     https: false,
-    port: port,
+    port: portFinderSync.getPort(port),
     static: {
       directory: resolveFromRoot('dist/assets'),
       watch: true,
