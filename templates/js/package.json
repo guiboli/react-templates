@@ -87,7 +87,6 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "dm-core-apis": "https://b0e69d10ce9d18a997f6e8b865ebd1c38c0c31fe@github.com/deepmirrorinc/CoreApis.git",
     "grpc-web": "1.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

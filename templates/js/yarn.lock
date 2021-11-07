@@ -2429,10 +2429,6 @@ dir-glob@^3.0.1:
   dependencies:
     path-type "^4.0.0"
 
-"dm-core-apis@https://b0e69d10ce9d18a997f6e8b865ebd1c38c0c31fe@github.com/deepmirrorinc/CoreApis.git":
-  version "0.0.1"
-  resolved "https://b0e69d10ce9d18a997f6e8b865ebd1c38c0c31fe@github.com/deepmirrorinc/CoreApis.git#33f65e6acf9aa778c050b839c085b4c32102c620"
-
 dns-equal@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/dns-equal/-/dns-equal-1.0.0.tgz#b39e7f1da6eb0a75ba9c17324b34753c47e0654d"
