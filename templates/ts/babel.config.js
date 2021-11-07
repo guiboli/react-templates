@@ -5,6 +5,13 @@ module.exports = {
     '@babel/preset-typescript',
   ],
   plugins: [
+    [
+      '@babel/plugin-transform-runtime',
+      {
+        regenerator: true,
+        corejs: 3,
+      },
+    ],
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-syntax-optional-chaining',
   ],
