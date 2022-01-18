@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { useThrottleFn } from '~/hooks/useThrottleFn';
-import { DMRemService } from '~/services/dm-rem-service';
+import { RemService } from '~/services/RemService';
 import { DMRouter } from '~/routes/router';
 
 const App = () => {
   const [htmlFontSize, setHtmlFontSize] = useState(() => {
-    return DMRemService.setRem();
+    return RemService.setRem();
   });
 
   const throttleSetRem = useThrottleFn(
     () => {
-      const fontSize = DMRemService.setRem();
+      const fontSize = RemService.setRem();
       setHtmlFontSize(fontSize);
     },
     1000,
