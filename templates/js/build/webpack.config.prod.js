@@ -25,7 +25,6 @@ module.exports = merge(base, {
       {
         test: /\.(s?css)$/,
         use: [
-          'cache-loader',
           MiniCssExtractPlugin.loader,
           'css-loader',
           'postcss-loader',

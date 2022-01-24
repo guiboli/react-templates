@@ -37,7 +37,6 @@ module.exports = {
 
         // Webpack will try the loaders backwards.
         use: [
-          'cache-loader',
           'babel-loader',
           {
             loader: 'ts-loader',
@@ -51,7 +50,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpe?g|gif|svg|glb|gltf)$/i,
+        test: /\.(png|jpe?g|gif|svg|webp)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'assets/images/[name].[hash:8][ext]',
@@ -62,6 +61,13 @@ module.exports = {
         type: 'asset/resource',
         generator: {
           filename: 'assets/fonts/[name].[hash:8][ext]',
+        },
+      },
+      {
+        test: /\.(glb|gltf)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/glbs/[name].[hash:8][ext]',
         },
       },
     ],

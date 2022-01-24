@@ -34,10 +34,10 @@ module.exports = {
         include: [resolveFromRoot('src')],
 
         // Webpack will try the loaders backwards.
-        use: ['cache-loader', 'babel-loader', 'source-map-loader'],
+        use: ['babel-loader', 'source-map-loader'],
       },
       {
-        test: /\.(png|jpe?g|gif|svg|glb|gltf)$/i,
+        test: /\.(png|jpe?g|gif|svg|webp)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'assets/images/[name].[hash:8][ext]',
@@ -48,6 +48,13 @@ module.exports = {
         type: 'asset/resource',
         generator: {
           filename: 'assets/fonts/[name].[hash:8][ext]',
+        },
+      },
+      {
+        test: /\.(glb|gltf)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/glbs/[name].[hash:8][ext]',
         },
       },
     ],

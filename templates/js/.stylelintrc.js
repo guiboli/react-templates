@@ -18,6 +18,8 @@ module.exports = {
       'rules',
     ],
     'order/properties-alphabetical-order': true,
+    'no-empty-source': null,
+    'color-hex-case': 'lower',
   },
   ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.txs', '**/*.json'],
 };

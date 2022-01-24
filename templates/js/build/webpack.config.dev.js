@@ -11,18 +11,20 @@ module.exports = merge(base, {
   mode: 'development',
   devtool: false,
   stats: 'minimal',
+  cache: {
+    type: 'filesystem',
+    allowCollectingMemory: true,
+    managedPaths: [resolveFromRoot('node_modules')],
+  },
+  watchOptions: {
+    ignored: [resolveFromRoot('node_modules')],
+    poll: 1000,
+  },
   module: {
     rules: [
       {
         test: /\.(s?css)$/,
-        use: [
-          'cache-loader',
-          'style-loader',
-          'css-modules-typescript-loader',
-          'css-loader',
-          'postcss-loader',
-          'sass-loader',
-        ],
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
       },
     ],
   },
