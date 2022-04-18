@@ -64,9 +64,11 @@ module.exports = merge(base, {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
           name(module) {
-            const packageName = module.context.match(
+            const res = module.context.match(
               /[\\/]node_modules[\\/](.*?)([\\/]|$)/,
-            )[1];
+            );
+            const packageName = res && res[1];
+            if (!packageName) return;
             return `vendor.${packageName.replace('@', '')}`;
           },
         },
